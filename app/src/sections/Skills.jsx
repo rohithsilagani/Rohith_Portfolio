@@ -10,7 +10,7 @@ const SkillCard = ({ skill, index }) => {
   // Icon mapping using SimpleIcons CDN for authentic brand logos
   const getIcon = (name) => {
     const n = name.toLowerCase();
-    const iconStyle = "w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-500";
+    const iconStyle = "w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform duration-500";
     
     if (n.includes('python')) return <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" className={iconStyle} />;
     if (n.includes('mysql')) return <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" className={iconStyle} />;

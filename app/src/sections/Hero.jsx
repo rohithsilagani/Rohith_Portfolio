@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/content';
 import { Github, Linkedin, Mail, Phone, Code, Link as LinkIcon } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 px-6 md:px-12 lg:px-24 overflow-hidden">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         
         {/* Left Content */}
         <motion.div 
@@ -23,8 +24,8 @@ const Hero = () => {
 
           {/* Headline */}
           <div className="flex flex-col gap-2">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Hi, I'm</h2>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">Hi, I'm</h2>
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold">
               <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                 Rohith Silagani
               </span>
@@ -103,9 +104,10 @@ const Hero = () => {
                 {/* Profile Photo */}
                 <div className="absolute inset-0 z-10 rounded-full overflow-hidden">
                   <img 
-                    src="/src/assets/profile.jpg" 
+                    src={profileImg}
                     alt="Rohith Silagani" 
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    onError={(e) => { e.target.style.backgroundColor = '#0A0F1E'; }}
                   />
                   {/* Subtle Gradient Overlay on Photo */}
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />

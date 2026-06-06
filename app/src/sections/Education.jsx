@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
+import collegeLogo from '../assets/college_logo.jpg';
 
 const Education = () => {
   const educationData = [
@@ -83,13 +84,14 @@ const Education = () => {
                   </div>
 
                   {/* Right Side - College Logo */}
-                  <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
-                    <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center relative overflow-hidden group-hover:border-primary/50 transition-all duration-500">
+                  <div className="lg:col-span-4 flex items-center justify-center lg:justify-end mt-6 lg:mt-0">
+                    <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center relative overflow-hidden group-hover:border-primary/50 transition-all duration-500">
                       <div className="absolute inset-0 rounded-2xl border-t-2 border-primary animate-spin-slow opacity-20" />
                       <img 
-                        src="/src/assets/college_logo.jpg" 
+                        src={collegeLogo}
                         alt="Kalasalingam Academy Logo" 
                         className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
+                        onError={(e) => { e.target.style.display = 'none'; }}
                       />
                     </div>
                   </div>
