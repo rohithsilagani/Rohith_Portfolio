@@ -14,12 +14,12 @@ const SkillCard = ({ skill, index }) => {
     
     if (n.includes('python')) return <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" className={iconStyle} />;
     if (n.includes('mysql')) return <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" className={iconStyle} />;
-    if (n.includes('power bi')) return <img src="/src/assets/powerbi.jpg" alt="Power BI" className={iconStyle} />;
+    if (n.includes('power bi')) return <img src="https://cdn.simpleicons.org/powerbi/F2CC8F" alt="Power BI" className={iconStyle} />;
     if (n.includes('machine learning')) return <Brain className="text-purple-400 w-12 h-12" />;
     if (n.includes('data cleaning')) return <Cpu className="text-emerald-400 w-12 h-12" />;
-    if (n.includes('tableau')) return <img src="/src/assets/tableau.png" alt="Tableau" className={iconStyle} />;
+    if (n.includes('tableau')) return <img src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau" className={iconStyle} />;
     if (n.includes('git')) return <img src="https://cdn.simpleicons.org/git/F05032" alt="Git" className={iconStyle} />;
-    if (n.includes('excel')) return <img src="/src/assets/excel.jpg" alt="Excel" className={iconStyle} />;
+    if (n.includes('excel')) return <img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Excel" className={iconStyle} />;
     if (n.includes('analytical')) return <Lightbulb className="text-amber-400 w-12 h-12" />;
     return <Code2 className="w-12 h-12" />;
   };
