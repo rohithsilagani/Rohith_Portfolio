@@ -7,19 +7,47 @@ const SkillCard = ({ skill, index }) => {
   const { name, level, category } = skill;
   const percentage = (level / 5) * 100;
 
-  // Icon mapping using reliable CDN and lucide icons
+  // Icon mapping using reliable CDN and custom SVG logos
   const getIcon = (name) => {
     const n = name.toLowerCase();
     const iconStyle = "w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform duration-500";
     
     if (n.includes('python')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" className={iconStyle} />;
     if (n.includes('mysql')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" className={iconStyle} />;
-    if (n.includes('power bi')) return <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">BI</div>;
+    // Power BI SVG Logo
+    if (n.includes('power bi')) return (
+      <svg className={iconStyle} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="6" width="5" height="10" fill="#F2CC8F" />
+        <rect x="9" y="2" width="5" height="14" fill="#F2CC8F" />
+        <rect x="16" y="10" width="5" height="6" fill="#F2CC8F" />
+      </svg>
+    );
     if (n.includes('machine learning')) return <Brain className="text-purple-400 w-12 h-12" />;
     if (n.includes('data cleaning')) return <Cpu className="text-emerald-400 w-12 h-12" />;
-    if (n.includes('tableau')) return <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">T</div>;
+    // Tableau SVG Logo
+    if (n.includes('tableau')) return (
+      <svg className={iconStyle} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="4" height="4" fill="#E97627" />
+        <rect x="8" y="2" width="4" height="4" fill="#E97627" />
+        <rect x="14" y="2" width="4" height="4" fill="#E97627" />
+        <rect x="2" y="8" width="4" height="4" fill="#E97627" />
+        <rect x="8" y="8" width="4" height="4" fill="#E97627" />
+        <rect x="14" y="8" width="4" height="4" fill="#E97627" />
+        <rect x="2" y="14" width="4" height="4" fill="#E97627" />
+        <rect x="8" y="14" width="4" height="4" fill="#E97627" />
+        <rect x="14" y="14" width="4" height="4" fill="#E97627" />
+      </svg>
+    );
     if (n.includes('git')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" className={iconStyle} />;
-    if (n.includes('excel')) return <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-xs">XL</div>;
+    // Excel SVG Logo
+    if (n.includes('excel')) return (
+      <svg className={iconStyle} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="6" height="6" fill="#217346" />
+        <rect x="11" y="3" width="6" height="6" fill="#217346" />
+        <rect x="3" y="11" width="6" height="6" fill="#217346" />
+        <rect x="11" y="11" width="6" height="6" fill="#217346" />
+      </svg>
+    );
     if (n.includes('analytical')) return <Lightbulb className="text-amber-400 w-12 h-12" />;
     return <Code2 className="w-12 h-12" />;
   };
