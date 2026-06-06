@@ -2,6 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/content';
 import { Database, Code2, BarChart3, Brain, Cpu, FileSpreadsheet, Lightbulb, Terminal, GitBranch } from 'lucide-react';
+import excelLogo from '../assets/Excel logo.jpg';
+import powerBiLogo from '../assets/Power Bi logo.jpg';
+import tableauLogo from '../assets/Tableau images.png';
+
 
 const SkillCard = ({ skill, index }) => {
   const { name, level, category } = skill;
@@ -14,40 +18,15 @@ const SkillCard = ({ skill, index }) => {
     
     if (n.includes('python')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" className={iconStyle} />;
     if (n.includes('mysql')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" className={iconStyle} />;
-    // Power BI SVG Logo
-    if (n.includes('power bi')) return (
-      <svg className={iconStyle} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="6" width="5" height="10" fill="#F2CC8F" />
-        <rect x="9" y="2" width="5" height="14" fill="#F2CC8F" />
-        <rect x="16" y="10" width="5" height="6" fill="#F2CC8F" />
-      </svg>
-    );
+    // Power BI Logo
+    if (n.includes('power bi')) return <img src={powerBiLogo} alt="Power BI" className={iconStyle} />;
     if (n.includes('machine learning')) return <Brain className="text-purple-400 w-12 h-12" />;
     if (n.includes('data cleaning')) return <Cpu className="text-emerald-400 w-12 h-12" />;
-    // Tableau SVG Logo
-    if (n.includes('tableau')) return (
-      <svg className={iconStyle} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="4" height="4" fill="#E97627" />
-        <rect x="8" y="2" width="4" height="4" fill="#E97627" />
-        <rect x="14" y="2" width="4" height="4" fill="#E97627" />
-        <rect x="2" y="8" width="4" height="4" fill="#E97627" />
-        <rect x="8" y="8" width="4" height="4" fill="#E97627" />
-        <rect x="14" y="8" width="4" height="4" fill="#E97627" />
-        <rect x="2" y="14" width="4" height="4" fill="#E97627" />
-        <rect x="8" y="14" width="4" height="4" fill="#E97627" />
-        <rect x="14" y="14" width="4" height="4" fill="#E97627" />
-      </svg>
-    );
+    // Tableau Logo
+    if (n.includes('tableau')) return <img src={tableauLogo} alt="Tableau" className={iconStyle} />;
     if (n.includes('git')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" className={iconStyle} />;
-    // Excel SVG Logo
-    if (n.includes('excel')) return (
-      <svg className={iconStyle} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="3" width="6" height="6" fill="#217346" />
-        <rect x="11" y="3" width="6" height="6" fill="#217346" />
-        <rect x="3" y="11" width="6" height="6" fill="#217346" />
-        <rect x="11" y="11" width="6" height="6" fill="#217346" />
-      </svg>
-    );
+    // Excel Logo
+    if (n.includes('excel')) return <img src={excelLogo} alt="Excel" className={iconStyle} />;
     if (n.includes('analytical')) return <Lightbulb className="text-amber-400 w-12 h-12" />;
     return <Code2 className="w-12 h-12" />;
   };
@@ -100,7 +79,11 @@ const SkillCard = ({ skill, index }) => {
 
       {/* Icon */}
       <div className="flex justify-center mb-6">
-        <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-500">
+        <div className={`w-20 h-20 rounded-2xl border flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-500 p-3 overflow-hidden ${
+          (name.toLowerCase().includes('power bi') || name.toLowerCase().includes('tableau') || name.toLowerCase().includes('excel'))
+            ? 'bg-white border-white'
+            : 'bg-white/5 border-white/10'
+        }`}>
           {getIcon(name)}
         </div>
       </div>
