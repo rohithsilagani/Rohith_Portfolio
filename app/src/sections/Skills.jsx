@@ -7,19 +7,19 @@ const SkillCard = ({ skill, index }) => {
   const { name, level, category } = skill;
   const percentage = (level / 5) * 100;
 
-  // Icon mapping using SimpleIcons CDN for authentic brand logos
+  // Icon mapping using reliable CDN and lucide icons
   const getIcon = (name) => {
     const n = name.toLowerCase();
     const iconStyle = "w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform duration-500";
     
-    if (n.includes('python')) return <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" className={iconStyle} />;
-    if (n.includes('mysql')) return <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" className={iconStyle} />;
-    if (n.includes('power bi')) return <img src="https://cdn.simpleicons.org/powerbi/F2CC8F" alt="Power BI" className={iconStyle} />;
+    if (n.includes('python')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" className={iconStyle} />;
+    if (n.includes('mysql')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" className={iconStyle} />;
+    if (n.includes('power bi')) return <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">BI</div>;
     if (n.includes('machine learning')) return <Brain className="text-purple-400 w-12 h-12" />;
     if (n.includes('data cleaning')) return <Cpu className="text-emerald-400 w-12 h-12" />;
-    if (n.includes('tableau')) return <img src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau" className={iconStyle} />;
-    if (n.includes('git')) return <img src="https://cdn.simpleicons.org/git/F05032" alt="Git" className={iconStyle} />;
-    if (n.includes('excel')) return <img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Excel" className={iconStyle} />;
+    if (n.includes('tableau')) return <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">T</div>;
+    if (n.includes('git')) return <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" className={iconStyle} />;
+    if (n.includes('excel')) return <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-xs">XL</div>;
     if (n.includes('analytical')) return <Lightbulb className="text-amber-400 w-12 h-12" />;
     return <Code2 className="w-12 h-12" />;
   };
