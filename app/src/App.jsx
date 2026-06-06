@@ -9,9 +9,11 @@ import Projects from './sections/Projects';
 import Experience from './sections/Experience';
 import Footer from './sections/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Initialize Lenis smooth scroll
@@ -103,6 +105,7 @@ function App() {
           RS.
         </motion.div>
 
+        {/* Desktop Navigation */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,15 +122,66 @@ function App() {
           ))}
         </motion.div>
 
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+        >
+          {mobileMenuOpen ? (
+            <X size={24} className="text-white" />
+          ) : (
+            <Menu size={24} className="text-white" />
+          )}
+        </button>
+
+        {/* Hire Me Button */}
         <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="bg-gradient-to-r from-primary to-secondary px-6 py-2 rounded-full text-sm font-bold hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all active:scale-95"
-          onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+          className="hidden md:block bg-gradient-to-r from-primary to-secondary px-6 py-2 rounded-full text-sm font-bold hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all active:scale-95"
+          onClick={() => {
+            setMobileMenuOpen(false);
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+          }}
         >
           Hire Me
         </motion.button>
       </nav>
+
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-20 left-0 w-full z-40 bg-dark/95 backdrop-blur-md border-b border-white/10 md:hidden"
+          >
+            <div className="px-6 py-6 flex flex-col gap-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={`#${item.id}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="mt-2 w-full bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-xl text-sm font-bold hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all active:scale-95"
+              >
+                Hire Me
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <main className="relative z-10">
         <Hero />
