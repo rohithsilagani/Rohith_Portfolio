@@ -45,7 +45,7 @@ export const portfolioData = {
       description: "Processing 9,216 records to optimize hospital flow.",
       tech: ["Excel", "Power BI", "DAX"],
       outcome: "Optimized emergency response times via data-driven bottlenecks identification.",
-      link: "https://github.com/rohithsilagani"
+      link: "https://github.com/rohithsilagani/ER-Patient-Flow-Performance-Dashboard-main.git"
     },
     {
       id: 3,
